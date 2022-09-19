@@ -46,7 +46,7 @@
             <FlatList
                 data={data.allFilms.films}
                 renderItem={renderItem}
-                keyExtractor={item => item.index}
+                keyExtractor={(item, index) => 'key'+index}
             />
         </SafeAreaView>
       )

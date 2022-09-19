@@ -9,8 +9,6 @@
       const date = new Date(releaseDate);
       const formattedDate = date.toLocaleDateString("en-US");
 
-      console.log(date.toLocaleDateString("en-US"));
-
       function openModal() {
         setExpanded(true);
       }
@@ -40,7 +38,7 @@
             <FlatList
                 data={species}
                 renderItem={renderItem}
-                keyExtractor={item => item.index}
+                keyExtractor={(item, index) => 'key'+index}
             />
           </TouchableOpacity>
         )
