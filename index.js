@@ -4,10 +4,11 @@
 import { AppRegistry, Button } from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import {name as appName} from './app.json';
-import MovieList from './components/MovieList';
+import MovieList from './screens/MovieList';
+import AboutMe from './screens/AboutMe';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AboutMe from './screens/AboutMe';
+
 
 // Initialize Navigation Stack
 const Stack = createNativeStackNavigator();

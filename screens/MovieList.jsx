@@ -1,7 +1,7 @@
     import React from 'react';
     import { View, Text, SafeAreaView, FlatList, TouchableOpacity, StyleSheet, useState, Button } from 'react-native';
     import { gql, useQuery } from '@apollo/client';
-    import MovieCard from './MovieCard';
+    import MovieCard from '../components/MovieCard';
     
     const GET_MOVIES = gql`
         query GetMovies {
@@ -40,8 +40,8 @@
           );
 
 
-        // console.log(data.allFilms.films[0].speciesConnection.species);
-      return (
+    // console.log(data.allFilms.films[0].speciesConnection.species);
+    return (
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={data.allFilms.films}
