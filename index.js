@@ -18,6 +18,14 @@ const client = new ApolloClient({
     uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
     cache: new InMemoryCache()
   });
+
+// Init contact info 
+
+const me = {
+  "name" : "Allen Abraham",
+  "phone": "248-910-0076",
+  "email" : "allen61310@gmail.com"
+ }
   
   const App = ({ navigation }) => (
     <ApolloProvider client={client}>
@@ -28,10 +36,6 @@ const client = new ApolloClient({
             component={MovieList}
            options={({ navigation }) => ({
               title: 'Star Wars Movies',
-              headerStyle: {
-                backgroundColor: '#273469',
-              },
-              headerTintColor: '#EBF2FA',
               headerRight: () => (
                 <Button
                   title='About Me'

@@ -7,22 +7,20 @@
 
     const MovieCard = (props: MovieDetails) => { 
       const { title, director, releaseDate, species } = props;
-
       const [isExpanded, setExpanded] = React.useState(false);
-      // const {species, title, director, releaseDate} = props;
 
       const date = new Date(releaseDate);
       const formattedDate = date.toLocaleDateString("en-US");
 
+      // expands card
       function openModal() {
         setExpanded(true);
       }
     
+      // closes card
       function closeModal() {
         setExpanded(false);
       }
-
-      console.log(species);
 
       // component rendered by species FlatList
       const renderItem = ({item} : {item: string}) => (

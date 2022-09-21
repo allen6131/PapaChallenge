@@ -1,5 +1,5 @@
     import React from 'react';
-    import { View, Text, SafeAreaView, FlatList, TouchableOpacity, StyleSheet, useState, Button } from 'react-native';
+    import { Text, SafeAreaView, FlatList, StyleSheet } from 'react-native';
     import { gql, useQuery } from '@apollo/client';
     import MovieCard from '../components/MovieCard';
     
@@ -48,7 +48,6 @@
         if (error) return <Text>Error! ${error.message}</Text>;
 
         const films = data.allFilms.films.map((film: FilmDetailsResponse) => {
-
             const speciesList = film.speciesConnection.species.map((species: {name: string}) => species.name);
 
             return {
@@ -59,9 +58,7 @@
             };
         });
 
-        console.log(films);
-
-     
+        // renders per each index in array passed to FlatList
         const renderItem = ({item} : {item: MovieDetails}) => ( 
             <MovieCard 
                 title={item.title} 
@@ -72,7 +69,6 @@
         );
 
 
-    console.log(data.allFilms.films[0].speciesConnection.species);
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
