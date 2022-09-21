@@ -30,7 +30,7 @@
       };
 
 
-      interface FilmDetailsResponse {
+    interface FilmDetailsResponse {
         title: string;
         director: string;
         releaseDate: Date;
@@ -39,7 +39,7 @@
                 name: string,
              }>,
         },
-      };
+    };
     
     export default function MovieList() {
         const { loading, error, data } = useQuery(GET_MOVIES);
@@ -74,7 +74,7 @@
             <FlatList
                 data={films}
                 renderItem={renderItem}
-                keyExtractor={(item, index) => 'key'+index}
+                keyExtractor={(item, index) => 'key:'+index}
             />
         </SafeAreaView>
       )

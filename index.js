@@ -19,22 +19,15 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
   });
 
-// Init contact info 
-
-const me = {
-  "name" : "Allen Abraham",
-  "phone": "248-910-0076",
-  "email" : "allen61310@gmail.com"
- }
   
-  const App = ({ navigation }) => (
+  const App = () => (
     <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
             name="Star Wars Movies" 
             component={MovieList}
-           options={({ navigation }) => ({
+              options={({ navigation }) => ({
               title: 'Star Wars Movies',
               headerRight: () => (
                 <Button
