@@ -1,21 +1,12 @@
     import { View, Text, StyleSheet, TouchableOpacity, FlatList, ListRenderItemInfo } from 'react-native';
     import React from 'react';
+    import { MovieDetails } from '../screens/MovieList';
 
-    export type Props = {
-      title?: string;
-      director?: string;
-      releaseDate?: Date;
-      species?: Array<string>;
-    };
+  
+  
 
-    
-    
-    const MovieCard: React.FC<Props> = ({
-       title,
-       director,
-       releaseDate,
-       species
-     }) => { 
+    const MovieCard = (props: MovieDetails) => { 
+      const { title, director, releaseDate, species } = props;
 
       const [isExpanded, setExpanded] = React.useState(false);
       // const {species, title, director, releaseDate} = props;
@@ -31,8 +22,10 @@
         setExpanded(false);
       }
 
+      console.log(species);
+
       // component rendered by species FlatList
-      const renderItem = ({ item }: { item: string }) => (
+      const renderItem = ({item} : {item: string}) => (
         <View style={styles.namesView}>
           <Text>{item}</Text>                  
         </View>
@@ -44,7 +37,7 @@
             <Text style={styles.titleText}>{title}</Text>
           </TouchableOpacity>
         )
-      } else if (isExpanded === true) {
+      } else {
         return (
           <TouchableOpacity style={styles.expandedListItem} onPress={closeModal}>
             <Text style={styles.titleTextExpanded}>{title}</Text>
